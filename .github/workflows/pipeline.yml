@@ -1,0 +1,22 @@
+name: PipeLine Commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy HTML
+        run: |
+          git config --global user.name 'Henrique'
+          git config --global user.email 'henrique.correa@edu.unifil.br'
+          git add -A
+          git commit -m "Atualização automática do HTML"
+          git push origin main
